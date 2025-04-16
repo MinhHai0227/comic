@@ -259,4 +259,20 @@ export class UserService {
       data: updateTotal.current_coin,
     };
   }
+
+  async paymentUpdatecoin(user_id: number, price_coin: number) {
+    await this.checkUserExis(user_id);
+    const updateTotal = await this.prisma.user.update({
+      where: { id: user_id },
+      data: {
+        current_coin: {
+          increment: price_coin,
+        },
+      },
+    });
+    return {
+      message: 'Update Total Coin thành công',
+      data: updateTotal.current_coin,
+    };
+  }
 }

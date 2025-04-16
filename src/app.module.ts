@@ -20,6 +20,9 @@ import { ChapterfollowerModule } from './module/chapterfollower/chapterfollower.
 import { ComichistoryModule } from './module/comichistory/comichistory.module';
 import { CommentModule } from './module/comment/comment.module';
 import { NotificationModule } from './module/notification/notification.module';
+import { TransactionModule } from './module/transaction/transaction.module';
+import { MomoModule } from './momo/momo.module';
+
 
 @Module({
   imports: [
@@ -45,6 +48,8 @@ import { NotificationModule } from './module/notification/notification.module';
     ComichistoryModule,
     CommentModule,
     NotificationModule,
+    TransactionModule,
+    MomoModule,
   ],
   controllers: [],
   providers: [

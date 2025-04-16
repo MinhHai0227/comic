@@ -27,4 +27,26 @@ export class NotificationService {
       },
     });
   }
+
+  async notifiPaymetSusses(user_id: number, price: number, coin: number) {
+    const message = `Bạn đã thanh toán thành công ${price} VND và được ${coin} xu`;
+    return await this.prisma.notification.create({
+      data: {
+        userId: user_id,
+        message: message,
+        type: notifiType.payment,
+      },
+    });
+  }
+
+  async notifiPaymetError(user_id: number) {
+    const message = `Bạn thanh toán không thành công!! Vui lòng thử lại`;
+    return await this.prisma.notification.create({
+      data: {
+        userId: user_id,
+        message: message,
+        type: notifiType.payment,
+      },
+    });
+  }
 }
